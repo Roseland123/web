@@ -35,6 +35,7 @@ def main():
     st.markdown(custom_css, unsafe_allow_html=True)
 
     # 设置页面标题和描述
+    st.title("重庆鑫迎鑫物业管理有限公司")
     st.write('欢迎来到公司网站！')
 
     # 添加公司介绍
