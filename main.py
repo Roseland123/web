@@ -4,7 +4,13 @@ from dotenv import load_dotenv
 import os
 
 
+# Load the .env file to access the environment variables
+load_dotenv()
 
+# Get the values of the environment variables
+api_key = os.getenv("STREAMLIT_API_KEY")
+password = os.getenv("STREAMLIT_PASSWORD")
+other_secret = os.getenv("STREAMLIT_OTHER_SECRET")
 
 def configure_logging():
     # 设置日志级别为INFO，这样只记录INFO级别及以上的日志
@@ -16,31 +22,14 @@ def save_to_log(name, email, message):
 
 def main():
     configure_logging()
-
     # 自定义CSS样式
     custom_css = """
     <style>
-    body {
-        font-family: 'Arial', sans-serif;
-    }
+
     .stApp {
         max-width: 800px;
         margin: 0 auto;
     }
-    preset_colors: list[tuple[str, ThemeColor]] = [
-    ("Default light", ThemeColor(
-            primaryColor="#ff4b4b",
-            backgroundColor="#ffffff",
-            secondaryBackgroundColor="#f0f2f6",
-            textColor="#31333F",
-        )),
-    ("Default dark", ThemeColor(
-            primaryColor="#ff4b4b",
-            backgroundColor="#0e1117",
-            secondaryBackgroundColor="#262730",
-            textColor="#fafafa",
-    ))
-]
     </style>
     """
     st.markdown(custom_css, unsafe_allow_html=True)
