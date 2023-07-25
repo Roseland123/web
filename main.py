@@ -1,5 +1,10 @@
 import streamlit as st
 import logging
+from dotenv import load_dotenv
+import os
+
+
+
 
 def configure_logging():
     # 设置日志级别为INFO，这样只记录INFO级别及以上的日志
@@ -11,11 +16,6 @@ def save_to_log(name, email, message):
 
 def main():
     configure_logging()
-
-    # 获取个人信息（只有你能在后台查看这些信息）
-    api_key = st.secrets["api_key"]
-    password = st.secrets["password"]
-    other_secret = st.secrets["other_secret"]
 
     # 自定义CSS样式
     custom_css = """
