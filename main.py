@@ -1,16 +1,5 @@
 import streamlit as st
 import logging
-from dotenv import load_dotenv
-import os
-
-
-# Load the .env file to access the environment variables
-load_dotenv()
-
-# Get the values of the environment variables
-api_key = os.getenv("STREAMLIT_API_KEY")
-password = os.getenv("STREAMLIT_PASSWORD")
-other_secret = os.getenv("STREAMLIT_OTHER_SECRET")
 
 def configure_logging():
     # 设置日志级别为INFO，这样只记录INFO级别及以上的日志
