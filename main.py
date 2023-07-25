@@ -11,23 +11,41 @@ def save_to_log(name, email, message):
 
 def main():
     configure_logging()
+
+    # 获取个人信息（只有你能在后台查看这些信息）
+    api_key = st.secrets["api_key"]
+    password = st.secrets["password"]
+    other_secret = st.secrets["other_secret"]
+
     # 自定义CSS样式
     custom_css = """
     <style>
     body {
-        background-color: #f2f2f2;
         font-family: 'Arial', sans-serif;
     }
     .stApp {
         max-width: 800px;
         margin: 0 auto;
     }
+    preset_colors: list[tuple[str, ThemeColor]] = [
+    ("Default light", ThemeColor(
+            primaryColor="#ff4b4b",
+            backgroundColor="#ffffff",
+            secondaryBackgroundColor="#f0f2f6",
+            textColor="#31333F",
+        )),
+    ("Default dark", ThemeColor(
+            primaryColor="#ff4b4b",
+            backgroundColor="#0e1117",
+            secondaryBackgroundColor="#262730",
+            textColor="#fafafa",
+    ))
+]
     </style>
     """
     st.markdown(custom_css, unsafe_allow_html=True)
 
     # 设置页面标题和描述
-    st.title('重庆鑫迎鑫物业管理有限公司')
     st.write('欢迎来到公司网站！')
 
     # 添加公司介绍
@@ -59,4 +77,6 @@ def main():
         st.success('感谢您的留言！我们会尽快与您联系。')
 
 if __name__ == '__main__':
+    # 设置Streamlit应用程序的主题和背景
+    st.set_page_config(page_title="重庆鑫迎鑫物业管理有限公司", page_icon="🏢", layout="wide", initial_sidebar_state="auto" )
     main()
